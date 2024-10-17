@@ -9,7 +9,7 @@ const SearchBox = () => {
       <input
         type="text"
         placeholder="search location"
-        className="input input-accent mr-2 ml-7"
+        className="input input-accent mr-2 ml-7 pr-20"
       />
       <button type="submit" className="btn btn-accent">
         Search
