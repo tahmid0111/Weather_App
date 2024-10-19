@@ -6,10 +6,11 @@ export const GetDataWithGeoLocation = async () => {
   if ("status" in location) {
     console.error("Failed to get location");
   } else {
-    let url: string = `https://api.weatherapi.com/v1/forecast.json?key=4a6279bf1fae453bbe243144241610&q=${location.latitude},${location.longitude}&days=7&aqi=no&alerts=no`;
+    let url: string = `https://api.weatherapi.com/v1/forecast.json?key=4a6279bf1fae453bbe243144241610&q=dublin&days=7&aqi=yes&alerts=no`;
     let options = {
       headers: {
         "Content-Type": "application/json",
+        // "Access-Control-Allow-Origin": "*",
       },
     };
 

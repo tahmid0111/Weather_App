@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+import Condition from "./Condition";
+import Moon from "./Moon";
+import Wind from "./Wind";
 
 const DetailsWeather = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <div className="col-span-4">
+        <Condition />
+      </div>
+      <div className="col-span-4 mx-3">
+        <Moon />
+      </div>
+      <div className="col-span-4 mx-3">
+        <Wind />
+      </div>
+    </>
+  );
+};
 
-export default DetailsWeather
+export default DetailsWeather;
