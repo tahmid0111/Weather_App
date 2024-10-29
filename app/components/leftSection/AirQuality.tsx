@@ -15,7 +15,7 @@ const AirQuality = () => {
   let HD = HumidityHelper(humidty);
 
   return (
-    <div className="mt-10">
+    <div className="mt-5">
       <section>
         <progress
           value={AQ.level}
