@@ -22,10 +22,11 @@ export const GetDataWithGeoLocation = async ({
 
     let res = await axios.get(url, options);
     let data = res.data;
+    console.log(data)
 
-    let url2: string = "https://restcountries.com/v3.1/all?fields=capital,capitalInfo";
-    let res2 = await axios.get(url2, options);
-    let data2 = res2.data;
+    // let url2: string = "https://restcountries.com/v3.1/all?fields=capital,capitalInfo";
+    // let res2 = await axios.get(url2, options);
+    // let data2 = res2.data;
     return data;
   }
 };

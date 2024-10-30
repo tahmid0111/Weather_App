@@ -10,7 +10,7 @@ const AirQuality = () => {
     weatherData.current.humidity;
   let air: number =
     weatherData &&
-    weatherData.forecast.forecastday[0].day.air_quality["us-epa-index"];
+    weatherData.current.air_quality["us-epa-index"];
   let AQ = AirQualityHelper(air);
   let HD = HumidityHelper(humidty);
 

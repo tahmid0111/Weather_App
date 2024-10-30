@@ -13,7 +13,6 @@ const CurrentLocation = () => {
     if (home) {
       alert("you are already in your home");
     } else {
-      setWeatherData("");
       let location = await getLocation();
       if ("latitude" in location && "longitude" in location) {
         let newData = await GetDataWithGeoLocation({
