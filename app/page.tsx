@@ -7,10 +7,8 @@ import DetailsWeather from "./components/rightSection/todayDetails/DetailsWeathe
 import CurrentLocation from "./components/header/CurrentLocation";
 import SearchBox from "./components/header/SearchBox";
 import WeatherForecast from "./components/rightSection/week/WeatherForecast";
-// import { getLocation } from "./utilities/location.helper";
 import {
   GetDataWithCityName,
-  // GetDataWithGeoLocation,
 } from "./utilities/api.helper";
 import { FaAndroid } from "react-icons/fa6";
 
@@ -18,23 +16,13 @@ import useWeatherStore from "@/app/store/weatherStore";
 import LoadingSpinner from "./components/header/LoadingSpinner";
 
 export default function Home() {
-  const { setWeatherData, setForecastData, setHome } = useWeatherStore();
-  const home = useWeatherStore((state) => state.home);
+  const { setWeatherData, setForecastData } = useWeatherStore();
+  const loading = useWeatherStore((state) => state.loading);
 
   const getData = async () => {
-    setHome(false);
     let newData = await GetDataWithCityName("zurich");
     setWeatherData(newData.data);
     setForecastData(newData.forecast);
-    // let location = await getLocation();
-    // if ("latitude" in location && "longitude" in location) {
-    //   newData = await GetDataWithGeoLocation({
-    //     latitude: location.latitude,
-    //     longitude: location.longitude,
-    //   });
-    // } else {
-
-    // }
   };
 
   useEffect(() => {
@@ -42,7 +30,7 @@ export default function Home() {
   }, []);
   return (
     <main className="grid grid-cols-12">
-      <div className="col-span-12">{home && <LoadingSpinner />}</div>
+      <div className="col-span-12">{loading && <LoadingSpinner />}</div>
       <div className="col-span-4 px-10">
         <Link href="/">
           <div className="flex pl-20 my-5">
@@ -62,7 +50,7 @@ export default function Home() {
             </div>
           </div>
           <DetailsWeather />
-          <div className="col-span-12 my-10">
+          <div className="col-span-12 mt-20 mb-10">
             <h1 className="font-bold border-b-2 border-blue-500 pb-2">
               Weather Forecast
             </h1>

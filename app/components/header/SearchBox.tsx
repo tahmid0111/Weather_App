@@ -5,14 +5,21 @@ import React, { useState } from "react";
 
 const SearchBox = () => {
   const [myText, setMyText] = useState("");
-  const { setWeatherData } = useWeatherStore();
+  const { setWeatherData, setForecastData, setHome, setLoading } = useWeatherStore();
+  const home = useWeatherStore((state) => state.home);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMyText(e.target.value);
   };
   const handleSubmit = async (e: React.FormEvent) => {
+    setLoading(true);
     e.preventDefault();
     let res = await GetDataWithCityName(myText);
     setWeatherData(res.data);
+    setForecastData(res.forecast);
+    setLoading(false);
+    if (home) {
+      setHome(false);
+    }
   };
   return (
     <form onSubmit={handleSubmit}>
