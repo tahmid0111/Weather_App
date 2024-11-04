@@ -1,19 +1,24 @@
 import useWeatherStore from "@/app/store/weatherStore";
-import { AirQualityHelper, HumidityHelper } from "@/app/utilities/weather.helper";
+import {
+  AirQualityHelper,
+  HumidityHelper,
+} from "@/app/utilities/weather.helper";
 import React from "react";
+import AirSkeleton from "../skeleton/AirSkeleton";
 
 const AirQuality = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
+  const initialLoad = useWeatherStore((state) => state.initialLoad);
 
-  let humidty: number =
-    weatherData &&
-    weatherData.current.humidity;
+  let humidty: number = weatherData && weatherData.current.humidity;
   let air: number =
-    weatherData &&
-    weatherData.current.air_quality["us-epa-index"];
+    weatherData && weatherData.current.air_quality["us-epa-index"];
   let AQ = AirQualityHelper(air);
   let HD = HumidityHelper(humidty);
 
+  if (initialLoad) {
+    return <AirSkeleton />;
+  }
   return (
     <div className="mt-5">
       <section>

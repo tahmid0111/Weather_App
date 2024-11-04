@@ -2,14 +2,19 @@ import React from "react";
 import { FaWind } from "react-icons/fa";
 import useWeatherStore from "@/app/store/weatherStore";
 import { ImCompass } from "react-icons/im";
+import DetailsSkeleton from "../../skeleton/DetailsSkeleton";
 
 
 const Wind = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
+  const initialLoad = useWeatherStore((state) => state.initialLoad);
 
   let wind_kph: string = weatherData && weatherData.current.wind_kph;
   let wind_dir: string = weatherData && weatherData.current.wind_dir;
   let visibility: string = weatherData && weatherData.current.vis_km;
+  if(initialLoad) {
+    return <DetailsSkeleton />
+  }
   return (
     <div className="bg-white rounded-2xl p-5">
       <header className="flex mb-3">

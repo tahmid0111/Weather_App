@@ -1,8 +1,10 @@
 import React from "react";
 import useWeatherStore from "@/app/store/weatherStore";
+import ConditionSkeleton from "../../skeleton/ConditionSkeleton";
 
 const Condition = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
+  const initialLoad = useWeatherStore((state) => state.initialLoad);
   
   let condition: string = weatherData && weatherData.current.condition.text;
   let conditionDay: string =
@@ -10,6 +12,9 @@ const Condition = () => {
   let location: string =
     weatherData &&
     `${weatherData.location.name}, ${weatherData.location.country}`;
+    if(initialLoad) {
+      return <ConditionSkeleton />
+    }
   return (
     <>
       <h1 className="text-6xl font-semibold text-pretty">{condition}</h1>

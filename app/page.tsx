@@ -7,22 +7,21 @@ import DetailsWeather from "./components/rightSection/todayDetails/DetailsWeathe
 import CurrentLocation from "./components/header/CurrentLocation";
 import SearchBox from "./components/header/SearchBox";
 import WeatherForecast from "./components/rightSection/week/WeatherForecast";
-import {
-  GetDataWithCityName,
-} from "./utilities/api.helper";
+import { GetDataWithCityName } from "./utilities/api.helper";
 import { FaAndroid } from "react-icons/fa6";
 
 import useWeatherStore from "@/app/store/weatherStore";
 import LoadingSpinner from "./components/header/LoadingSpinner";
 
 export default function Home() {
-  const { setWeatherData, setForecastData } = useWeatherStore();
+  const { setWeatherData, setForecastData, setInitialLoad } = useWeatherStore();
   const loading = useWeatherStore((state) => state.loading);
 
   const getData = async () => {
     let newData = await GetDataWithCityName("zurich");
     setWeatherData(newData.data);
     setForecastData(newData.forecast);
+    setInitialLoad(false);
   };
 
   useEffect(() => {

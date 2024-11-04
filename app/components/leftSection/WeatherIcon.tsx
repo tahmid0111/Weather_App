@@ -2,10 +2,11 @@ import useWeatherStore from "@/app/store/weatherStore";
 import { displayDate } from "@/app/utilities/date.helper";
 import React, { useState } from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import IconSkeleton from "../skeleton/IconSkeleton";
 
 const WeatherIcon = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
-  const [loadingImage, setLoadingImage] = useState(true);
+  const initialLoad = useWeatherStore((state) => state.initialLoad);
 
   let condition: string = weatherData && weatherData.current.condition.icon;
   let text: string = weatherData && weatherData.current.condition.text;
@@ -17,24 +18,12 @@ const WeatherIcon = () => {
     weatherData && weatherData.forecast.forecastday[0].astro.sunrise;
   let set: any =
     weatherData && weatherData.forecast.forecastday[0].astro.sunset;
-
-  const handleImageLoad = () => {
-    setLoadingImage(false);
-  };
-
+  if (initialLoad) {
+    return <IconSkeleton />;
+  }
   return (
     <div className="text-center mt-10">
-      {loadingImage && (
-        <div className="w-1/4 mx-auto">
-          <div className="skeleton h-32 w-32e"></div>
-        </div>
-      )}
-      <img
-        src={condition}
-        alt={text}
-        className="w-1/4 mx-auto"
-        onLoad={handleImageLoad}
-      />
+      <img src={condition} alt={text} className="w-1/4 mx-auto" />
       <p className="text-5xl font-bold mb-5">
         {avgTemp}
         <sup>&#8451;</sup>
