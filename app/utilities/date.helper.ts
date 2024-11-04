@@ -15,3 +15,11 @@ export const displayDate2 = (dateEpoch: number) => {
 
   return formattedDate;
 };
+
+export function getDayOfWeek(dateString: string) {
+  const date = new Date(dateString);
+  const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const dayIndex = date.getDay();
+
+  return daysOfWeek[dayIndex];
+}

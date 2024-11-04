@@ -11,16 +11,16 @@ const WeatherForecast = () => {
         <Forecast dayNum={2} />
       </div>
       <div className="col-span-2">
-        {/* <Forecast dayNum={3} /> */}
+        <Forecast dayNum={3} />
       </div>
       <div className="col-span-2">
-        {/* <Forecast dayNum={4} /> */}
+        <Forecast dayNum={4} />
       </div>
       <div className="col-span-2">
-        {/* <Forecast dayNum={5} /> */}
+        <Forecast dayNum={5} />
       </div>
       <div className="col-span-2">
-        {/* <Forecast dayNum={6} /> */}
+        <Forecast dayNum={6} />
       </div>
     </>
   );

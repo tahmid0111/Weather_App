@@ -2,14 +2,17 @@ import { create } from "zustand";
 
 interface WeatherStore {
   weatherData: any;
+  forecastData: any,
   home: boolean;
   // fetchWeatherData: () => any;
   setWeatherData: (data: any) => void;
+  setForecastData: (data: any) => void;
   setHome: (data: boolean) => void;
 }
 
 const useWeatherStore = create<WeatherStore>((set) => ({
   weatherData: null,
+  forecastData: null,
   home: true,
   // fetchWeatherData: async () => {
   //   try {
@@ -21,6 +24,9 @@ const useWeatherStore = create<WeatherStore>((set) => ({
   // },
   setWeatherData: (data: any) => {
     set({ weatherData: data });
+  },
+  setForecastData: (data: any) => {
+    set({ forecastData: data });
   },
   setHome: (data: boolean) => {
     set({ home: data });

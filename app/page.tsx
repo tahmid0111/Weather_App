@@ -18,13 +18,14 @@ import useWeatherStore from "@/app/store/weatherStore";
 import LoadingSpinner from "./components/header/LoadingSpinner";
 
 export default function Home() {
-  const { setWeatherData, setHome } = useWeatherStore();
+  const { setWeatherData, setForecastData, setHome } = useWeatherStore();
   const home = useWeatherStore((state) => state.home);
 
   const getData = async () => {
     setHome(false);
     let newData = await GetDataWithCityName("zurich");
-    setWeatherData(newData);
+    setWeatherData(newData.data);
+    setForecastData(newData.forecast);
     // let location = await getLocation();
     // if ("latitude" in location && "longitude" in location) {
     //   newData = await GetDataWithGeoLocation({
@@ -34,7 +35,6 @@ export default function Home() {
     // } else {
 
     // }
-    
   };
 
   useEffect(() => {

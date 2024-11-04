@@ -12,7 +12,7 @@ const SearchBox = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     let res = await GetDataWithCityName(myText);
-    setWeatherData(res);
+    setWeatherData(res.data);
   };
   return (
     <form onSubmit={handleSubmit}>

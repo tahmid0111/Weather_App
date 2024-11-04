@@ -16,7 +16,7 @@ export const AirQualityHelper = (air: number): AirQualityResponse => {
   }
   if (air === 3) {
     return {
-      message: "Good Air Quality ( Unhealthy for sensitive groups )",
+      message: "Average Air Quality",
       level: 4,
     };
   }
@@ -72,4 +72,8 @@ export const HumidityHelper = (humidty: number): HumidityQualityResponse => {
       level: 4,
     };
   }
+};
+
+export const avgTemp = (max: number, min: number): number => {
+  return Math.floor((max + min) / 2);
 };
