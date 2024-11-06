@@ -4,6 +4,7 @@ import { GetDataWithGeoLocation } from "@/app/utilities/api.helper";
 import { FaLocationCrosshairs } from "react-icons/fa6";
 import useWeatherStore from "@/app/store/weatherStore";
 import { getLocation } from "@/app/utilities/location.helper";
+import toast from "react-hot-toast";
 
 const CurrentLocation = () => {
   const home = useWeatherStore((state) => state.home);
@@ -12,10 +13,17 @@ const CurrentLocation = () => {
 
   const handleClick = async () => {
     if (home) {
-      alert("you are already in your home");
+      toast("You're already home!", {
+        icon: "👏",
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
     } else {
-      setLoading(true);
       const location = await getLocation();
+      setLoading(true);
       if ("latitude" in location && "longitude" in location) {
         const newData = await GetDataWithGeoLocation({
           latitude: location.latitude,

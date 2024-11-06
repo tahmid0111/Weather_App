@@ -13,6 +13,7 @@ import { FaAndroid } from "react-icons/fa6";
 import useWeatherStore from "@/app/store/weatherStore";
 import LoadingSpinner from "./components/header/LoadingSpinner";
 import ResponsiveHeader from "./components/header/ResponsiveHeader";
+import { Toaster } from "react-hot-toast";
 
 export default function Home() {
   const { setWeatherData, setForecastData, setInitialLoad } = useWeatherStore();
@@ -30,7 +31,12 @@ export default function Home() {
   }, []);
   return (
     <main className="grid grid-cols-12">
-      <div className="col-span-12">{loading && <LoadingSpinner />}</div>
+      <div className="col-span-12">
+        {loading && <LoadingSpinner />}
+        <div>
+          <Toaster />
+        </div>
+      </div>
       <div className="col-span-12 md:hidden mx-auto">
         <ResponsiveHeader />
       </div>
@@ -52,10 +58,10 @@ export default function Home() {
         <TodayWeather />
       </div>
 
-      <div className="col-span-12 lg:col-span-8 bg-zinc-100 px-5 xl:px-10 min-h-screen py-10 lg:py-0">
+      <div className="col-span-12 lg:col-span-8 bg-zinc-100 px-5 xl:px-10 min-h-screen py-10">
         <div className="grid grid-cols-12">
           <DetailsWeather />
-          <div className="col-span-12 mt-10 xl:mt-20 mb-10">
+          <div className="col-span-12 mt-10 mb-10">
             <h1 className="font-bold border-b-2 border-blue-500 pb-2">
               Weather Forecast
             </h1>
