@@ -10,18 +10,18 @@ const AirQuality = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
   const initialLoad = useWeatherStore((state) => state.initialLoad);
 
-  let humidty: number = weatherData && weatherData.current.humidity;
-  let air: number =
+  const humidty: number = weatherData && weatherData.current.humidity;
+  const air: number =
     weatherData && weatherData.current.air_quality["us-epa-index"];
-  let AQ = AirQualityHelper(air);
-  let HD = HumidityHelper(humidty);
+  const AQ = AirQualityHelper(air);
+  const HD = HumidityHelper(humidty);
 
   if (initialLoad) {
     return <AirSkeleton />;
   }
   return (
-    <div className="mt-5">
-      <section>
+    <div className="my-5">
+      <section className="mb-2">
         <progress
           value={AQ.level}
           max="6"

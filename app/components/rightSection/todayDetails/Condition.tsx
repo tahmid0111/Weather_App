@@ -5,16 +5,16 @@ import ConditionSkeleton from "../../skeleton/ConditionSkeleton";
 const Condition = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
   const initialLoad = useWeatherStore((state) => state.initialLoad);
-  
-  let condition: string = weatherData && weatherData.current.condition.text;
-  let conditionDay: string =
+
+  const condition: string = weatherData && weatherData.current.condition.text;
+  const conditionDay: string =
     weatherData && weatherData.forecast.forecastday[0].day.condition.text;
-  let location: string =
+  const location: string =
     weatherData &&
     `${weatherData.location.name}, ${weatherData.location.country}`;
-    if(initialLoad) {
-      return <ConditionSkeleton />
-    }
+  if (initialLoad) {
+    return <ConditionSkeleton />;
+  }
   return (
     <>
       <h1 className="text-6xl font-semibold text-pretty">{condition}</h1>

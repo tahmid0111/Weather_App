@@ -13,7 +13,7 @@ const SearchBox = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     setLoading(true);
     e.preventDefault();
-    let res = await GetDataWithCityName(myText);
+    const res = await GetDataWithCityName(myText);
     setWeatherData(res.data);
     setForecastData(res.forecast);
     setLoading(false);
@@ -26,11 +26,11 @@ const SearchBox = () => {
       <input
         type="text"
         placeholder="search location"
-        className="input input-primary mr-2 ml-7 pr-20"
+        className="input 2xl:input-lg input-primary mr-2 lg:ml-7 xxm:pr-20 2xl:pr-28"
         value={myText}
         onChange={handleChange}
       />
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="btn 2xl:btn-lg btn-primary">
         Search
       </button>
     </form>

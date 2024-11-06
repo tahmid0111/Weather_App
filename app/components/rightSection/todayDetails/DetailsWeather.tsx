@@ -9,10 +9,10 @@ const DetailsWeather = () => {
       <div className="col-span-4">
         <Condition />
       </div>
-      <div className="col-span-4 mx-3">
+      <div className="col-span-4 xl:mx-3">
         <Moon />
       </div>
-      <div className="col-span-4 mx-3">
+      <div className="col-span-4 ml-3 xl:mx-3">
         <Wind />
       </div>
     </>
