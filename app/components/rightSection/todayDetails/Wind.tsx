@@ -16,7 +16,7 @@ const Wind = () => {
     return <DetailsSkeleton />
   }
   return (
-    <div className="bg-white rounded-2xl p-5">
+    <div className="bg-white rounded-lg md:rounded-2xl py-5 px-3 md:p-5">
       <header className="flex mb-3">
         <p className="text-slate-500 font-bold">Wind Status</p>
         <FaWind className="m-1 text-green-500" />

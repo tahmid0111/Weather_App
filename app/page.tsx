@@ -52,7 +52,7 @@ export default function Home() {
         <TodayWeather />
       </div>
 
-      <div className="col-span-8 bg-zinc-100 px-5 xl:px-10 min-h-screen hidden md:block">
+      <div className="col-span-12 lg:col-span-8 bg-zinc-100 px-5 xl:px-10 min-h-screen py-10 lg:py-0">
         <div className="grid grid-cols-12">
           <DetailsWeather />
           <div className="col-span-12 mt-10 xl:mt-20 mb-10">

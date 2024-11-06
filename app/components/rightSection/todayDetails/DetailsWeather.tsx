@@ -6,13 +6,13 @@ import Wind from "./Wind";
 const DetailsWeather = () => {
   return (
     <>
-      <div className="col-span-4">
+      <div className="col-span-12 sm:col-span-4 lg:col-span-4">
         <Condition />
       </div>
-      <div className="col-span-4 xl:mx-3">
+      <div className="col-span-12 xxm:col-span-6 sm:col-span-4 lg:col-span-4 my-3  xl:mx-3 xxm:mr-1">
         <Moon />
       </div>
-      <div className="col-span-4 ml-3 xl:mx-3">
+      <div className="col-span-12 xxm:col-span-6 sm:col-span-4 lg:col-span-4 lg:ml-3 xl:mx-3 xxm:my-3 xxm:ml-1">
         <Wind />
       </div>
     </>

@@ -17,7 +17,7 @@ const Moon = () => {
       return <DetailsSkeleton />
     }
   return (
-    <div className="bg-white rounded-2xl p-5">
+    <div className="bg-white rounded-lg md:rounded-2xl py-5 px-3 md:p-5">
       <header className="flex mb-5">
         <p className="text-slate-500 font-bold">Night</p>{" "}
         <FaMoon className="m-1 text-yellow-500" />

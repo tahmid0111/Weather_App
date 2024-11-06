@@ -19,7 +19,7 @@ const Condition = () => {
     <>
       <h1 className="text-6xl font-semibold text-pretty">{condition}</h1>
       <h1 className="text-2xl font-semibold mt-3">Chances: {conditionDay}</h1>
-      <h1 className="font-bold text-blue-500 mt-5">{location}</h1>
+      <h1 className="font-bold text-blue-500 mt-5 mr-2">{location}</h1>
     </>
   );
 };
