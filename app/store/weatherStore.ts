@@ -23,7 +23,7 @@ const useWeatherStore = create<WeatherStore>((set) => ({
   setWeatherData: (data: object | null) => {
     set({ weatherData: data });
   },
-  setForecastData: (data: any) => {
+  setForecastData: (data: object | null) => {
     set({ forecastData: data });
   },
   setHome: (data: boolean) => {
