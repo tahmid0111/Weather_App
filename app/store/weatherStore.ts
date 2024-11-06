@@ -1,13 +1,13 @@
 import { create } from "zustand";
 
 interface WeatherStore {
-  weatherData: any;
-  forecastData: any,
+  weatherData: object | null;
+  forecastData: object | null,
   home: boolean;
   loading: boolean;
   initialLoad: boolean;
-  setWeatherData: (data: any) => void;
-  setForecastData: (data: any) => void;
+  setWeatherData: (data: object | null) => void;
+  setForecastData: (data: object | null) => void;
   setHome: (data: boolean) => void;
   setLoading: (data: boolean) => void;
   setInitialLoad: (data: boolean) => void;
@@ -20,7 +20,7 @@ const useWeatherStore = create<WeatherStore>((set) => ({
   loading: false,
   initialLoad: true,
 
-  setWeatherData: (data: any) => {
+  setWeatherData: (data: object | null) => {
     set({ weatherData: data });
   },
   setForecastData: (data: any) => {
