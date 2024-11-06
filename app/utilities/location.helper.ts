@@ -23,6 +23,7 @@ export const getLocation = async (): Promise<
       );
     });
   } catch (error) {
+    console.log(error)
     return { status: "fail" };
   }
 };

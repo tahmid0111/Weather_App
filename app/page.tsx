@@ -24,6 +24,8 @@ export default function Home() {
     setWeatherData(newData.data);
     setForecastData(newData.forecast);
     setInitialLoad(false);
+    console.log(newData.data);
+    console.log(newData.forecast);
   };
 
   useEffect(() => {

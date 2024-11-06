@@ -1,5 +1,4 @@
 import axios from "axios";
-import { getLocation } from "./location.helper";
 
 export const GetDataWithGeoLocation = async ({
   latitude,
@@ -9,18 +8,18 @@ export const GetDataWithGeoLocation = async ({
   longitude: number;
 }) => {
   try {
-    let url: string = `https://api.weatherapi.com/v1/forecast.json?key=26ae320be6f34ce08ff50522240411&q=${latitude},${longitude}&days=7&aqi=yes&alerts=no`;
-    let url2: string = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min`;
-    let options = {
+    const url: string = `https://api.weatherapi.com/v1/forecast.json?key=26ae320be6f34ce08ff50522240411&q=${latitude},${longitude}&days=7&aqi=yes&alerts=no`;
+    const url2: string = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min`;
+    const options = {
       headers: {
         "Content-Type": "application/json",
       },
     };
 
-    let res = await axios.get(url, options);
-    let res2 = await axios.get(url2, options);
-    let data = res.data;
-    let data2 = res2.data;
+    const res = await axios.get(url, options);
+    const res2 = await axios.get(url2, options);
+    const data = res.data;
+    const data2 = res2.data;
 
     return { data: data, forecast: data2 };
   } catch (error) {
@@ -34,19 +33,19 @@ export const GetDataWithGeoLocation = async ({
 };
 
 export const GetDataWithCityName = async (cityName: string) => {
-  let url: string = `https://api.weatherapi.com/v1/forecast.json?key=26ae320be6f34ce08ff50522240411&q=${cityName}&aqi=yes&alerts=no`;
-  let options = {
+  const url: string = `https://api.weatherapi.com/v1/forecast.json?key=26ae320be6f34ce08ff50522240411&q=${cityName}&aqi=yes&alerts=no`;
+  const options = {
     headers: {
       "Content-Type": "application/json",
       // "Access-Control-Allow-Origin": "*",
     },
   };
-  let res = await axios.get(url, options);
-  let data = res.data;
+  const res = await axios.get(url, options);
+  const data = res.data;
 
-  let url2: string = `https://api.open-meteo.com/v1/forecast?latitude=${data.location.lat}&longitude=${data.location.lon}&daily=temperature_2m_max,temperature_2m_min`;
-  let res2 = await axios.get(url2, options);
-  let data2 = res2.data;
+  const url2: string = `https://api.open-meteo.com/v1/forecast?latitude=${data.location.lat}&longitude=${data.location.lon}&daily=temperature_2m_max,temperature_2m_min`;
+  const res2 = await axios.get(url2, options);
+  const data2 = res2.data;
   // console.log(data)
   return { data: data, forecast: data2 };
 };

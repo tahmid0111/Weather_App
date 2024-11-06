@@ -3,7 +3,6 @@ import { displayDate } from "@/app/utilities/date.helper";
 import React from "react";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import IconSkeleton from "../skeleton/IconSkeleton";
-import Image from "next/image";
 
 const WeatherIcon = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
