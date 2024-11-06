@@ -8,9 +8,9 @@ const WeatherIcon = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
   const initialLoad = useWeatherStore((state) => state.initialLoad);
 
-  const condition: string = weatherData && weatherData.current.condition.icon;
-  const text: string = weatherData && weatherData.current.condition.text;
-  const avgTemp: number =
+  const condition = weatherData && weatherData.current.condition.icon;
+  const text = weatherData && weatherData.current.condition.text;
+  const avgTemp =
     weatherData && weatherData.forecast.forecastday[0].day.avgtemp_c;
   const today =
     weatherData && displayDate(weatherData.forecast.forecastday[0].date_epoch);
@@ -21,7 +21,13 @@ const WeatherIcon = () => {
   }
   return (
     <div className="text-center lg:mt-10">
-      <img src={condition} alt={text} className="w-1/3 xxm:w-1/5 sm:w-1/6 mx-auto" />
+      {condition && (
+        <img
+          src={condition}
+          alt={text ?? ""}
+          className="w-1/3 xxm:w-1/5 sm:w-1/6 mx-auto"
+        />
+      )}
       <p className="text-5xl font-bold mb-2 lg:mb-5">
         {avgTemp}
         <sup>&#8451;</sup>

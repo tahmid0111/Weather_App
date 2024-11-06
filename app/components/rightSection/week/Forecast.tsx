@@ -9,16 +9,16 @@ const Forecast = ({ dayNum }: { dayNum: number }) => {
   const ForecastData = useWeatherStore((state) => state.forecastData);
   const initialLoad = useWeatherStore((state) => state.initialLoad);
 
-  const myDate: string = ForecastData && ForecastData.daily.time[`${dayNum}`];
-  const today: string = getDayOfWeek(myDate);
+  const myDate = ForecastData && ForecastData.daily.time[`${dayNum}`];
+  const today = myDate && getDayOfWeek(myDate);
 
-  const max_temp_c: number =
+  const max_temp_c =
     ForecastData && ForecastData.daily.temperature_2m_max[`${dayNum}`];
-    const min_temp_c: number =
+  const min_temp_c =
     ForecastData && ForecastData.daily.temperature_2m_min[`${dayNum}`];
-    const temp: number = avgTemp(max_temp_c, min_temp_c);
-  if(initialLoad) {
-    return <ForecastSkeleton />
+  const temp = max_temp_c ? min_temp_c && avgTemp(max_temp_c, min_temp_c) : "";
+  if (initialLoad) {
+    return <ForecastSkeleton />;
   }
   return (
     <article className="bg-white px-1 py-5 rounded-2xl mx-1 xl:mx-2 text-center">

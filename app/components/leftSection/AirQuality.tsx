@@ -10,11 +10,10 @@ const AirQuality = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
   const initialLoad = useWeatherStore((state) => state.initialLoad);
 
-  const humidty: number = weatherData && weatherData.current.humidity;
-  const air: number =
-    weatherData && weatherData.current.air_quality["us-epa-index"];
-  const AQ = AirQualityHelper(air);
-  const HD = HumidityHelper(humidty);
+  const humidty = weatherData && weatherData.current.humidity;
+  const air = weatherData && weatherData.current.air_quality["us-epa-index"];
+  const AQ = air !== null && AirQualityHelper(air);
+  const HD = humidty !== null && HumidityHelper(humidty);
 
   if (initialLoad) {
     return <AirSkeleton />;
@@ -22,21 +21,29 @@ const AirQuality = () => {
   return (
     <div className="my-5">
       <section className="mb-2">
-        <progress
-          value={AQ.level}
-          max="6"
-          className="progress progress-success h-2 w-3/5"
-        ></progress>
-        <p className="font-bold text-pretty">{AQ.message}</p>
+        {AQ && (
+          <>
+            <progress
+              value={AQ.level}
+              max="6"
+              className="progress progress-success h-2 w-3/5"
+            ></progress>
+            <p className="font-bold text-pretty">{AQ.message}</p>
+          </>
+        )}
       </section>
       <section>
-        <progress
-          value={HD.level}
-          max="4"
-          className="progress progress-warning h-2 w-3/5"
-        ></progress>
-        <p className="font-bold">{HD.message}</p>
-        <p className="text-pretty">{HD.details}</p>
+        {HD && (
+          <>
+            <progress
+              value={HD.level}
+              max="4"
+              className="progress progress-warning h-2 w-3/5"
+            ></progress>
+            <p className="font-bold">{HD.message}</p>
+            <p className="text-pretty">{HD.details}</p>
+          </>
+        )}
       </section>
     </div>
   );

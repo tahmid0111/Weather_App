@@ -7,11 +7,11 @@ const Moon = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
   const initialLoad = useWeatherStore((state) => state.initialLoad);
 
-  const moon_phase: string =
+  const moon_phase =
     weatherData && weatherData.forecast.forecastday[0].astro.moon_phase;
-  const moonrise: string =
+  const moonrise =
     weatherData && weatherData.forecast.forecastday[0].astro.moonrise;
-  const moonset: string =
+  const moonset =
     weatherData && weatherData.forecast.forecastday[0].astro.moonset;
   if (initialLoad) {
     return <DetailsSkeleton />;
@@ -19,16 +19,16 @@ const Moon = () => {
   return (
     <div className="bg-white rounded-lg md:rounded-2xl py-5 px-3 md:p-5">
       <header className="flex mb-5">
-        <p className="text-slate-500 font-bold">Night</p>{" "}
+        <p className="text-slate-500 font-bold">Night</p>
         <FaMoon className="m-1 text-yellow-500" />
       </header>
       <p>{moon_phase} Moon</p>
       <div className="flex mt-2">
-        <FaArrowUp className="m-1 text-yellow-500" />{" "}
+        <FaArrowUp className="m-1 text-yellow-500" />
         <p>Moon rise: {moonrise}</p>
       </div>
       <div className="flex">
-        <FaArrowDown className="m-1 text-yellow-500" />{" "}
+        <FaArrowDown className="m-1 text-yellow-500" />
         <p>Moon set: {moonset}</p>
       </div>
     </div>

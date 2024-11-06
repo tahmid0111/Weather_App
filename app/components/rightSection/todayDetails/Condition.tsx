@@ -6,10 +6,10 @@ const Condition = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
   const initialLoad = useWeatherStore((state) => state.initialLoad);
 
-  const condition: string = weatherData && weatherData.current.condition.text;
-  const conditionDay: string =
+  const condition = weatherData && weatherData.current.condition.text;
+  const conditionDay =
     weatherData && weatherData.forecast.forecastday[0].day.condition.text;
-  const location: string =
+  const location =
     weatherData &&
     `${weatherData.location.name}, ${weatherData.location.country}`;
   if (initialLoad) {

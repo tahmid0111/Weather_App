@@ -8,9 +8,9 @@ const Wind = () => {
   const weatherData = useWeatherStore((state) => state.weatherData);
   const initialLoad = useWeatherStore((state) => state.initialLoad);
 
-  const wind_kph: string = weatherData && weatherData.current.wind_kph;
-  const wind_dir: string = weatherData && weatherData.current.wind_dir;
-  const visibility: string = weatherData && weatherData.current.vis_km;
+  const wind_kph = weatherData && weatherData.current.wind_kph;
+  const wind_dir = weatherData && weatherData.current.wind_dir;
+  const visibility = weatherData && weatherData.current.vis_km;
   if (initialLoad) {
     return <DetailsSkeleton />;
   }

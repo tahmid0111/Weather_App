@@ -1,4 +1,5 @@
 import axios from "axios";
+import 'dotenv/config'
 
 export const GetDataWithGeoLocation = async ({
   latitude,
@@ -8,7 +9,7 @@ export const GetDataWithGeoLocation = async ({
   longitude: number;
 }) => {
   try {
-    const url: string = `https://api.weatherapi.com/v1/forecast.json?key=26ae320be6f34ce08ff50522240411&q=${latitude},${longitude}&days=7&aqi=yes&alerts=no`;
+    const url: string = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.weather_key}&q=${latitude},${longitude}&days=7&aqi=yes&alerts=no`;
     const url2: string = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min`;
     const options = {
       headers: {
