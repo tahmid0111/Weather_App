@@ -39,28 +39,28 @@ export default function Home() {
           <Toaster />
         </div>
       </div>
-      <div className="col-span-12 md:hidden mx-auto">
+      <header className="col-span-12 md:hidden mx-auto">
         <ResponsiveHeader />
-      </div>
-      <div className="col-span-4 px-5 xl:px-10 hidden md:block">
+      </header>
+      <header className="col-span-4 px-5 xl:px-10 hidden md:block">
         <Link href="/">
           <div className="flex lg:pl-10 xl:pl-20 my-5">
             <h1 className="text-3xl 2xl:text-4xl">Weather AI</h1>
             <FaAndroid className="text-4xl 2xl:text-5xl ml-3 font-bold text-blue-500 pt-1" />
           </div>
         </Link>
-      </div>
-      <div className="col-span-8 lg:bg-zinc-100 px-5 xl:px-10 hidden md:block">
+      </header>
+      <header className="col-span-8 lg:bg-zinc-100 px-5 xl:px-10 hidden md:block">
         <div className="flex py-5 lg:pr-10 xl:pr-20 float-end">
           <CurrentLocation />
           <SearchBox />
         </div>
-      </div>
-      <div className="col-span-12 lg:col-span-4 px-3 sm:px-5 xl:px-10">
+      </header>
+      <section className="col-span-12 lg:col-span-4 px-3 sm:px-5 xl:px-10">
         <TodayWeather />
-      </div>
+      </section>
 
-      <div className="col-span-12 lg:col-span-8 bg-zinc-100 px-5 xl:px-10 min-h-screen py-10">
+      <section className="col-span-12 lg:col-span-8 bg-zinc-100 px-5 xl:px-10 min-h-screen py-10">
         <div className="grid grid-cols-12">
           <DetailsWeather />
           <div className="col-span-12 mt-10 mb-10">
@@ -70,7 +70,7 @@ export default function Home() {
           </div>
           <WeatherForecast />
         </div>
-      </div>
+      </section>
     </main>
   );
 }

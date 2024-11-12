@@ -28,16 +28,27 @@ const WeatherIcon = () => {
           className="w-1/3 xxm:w-1/5 sm:w-1/6 mx-auto"
         />
       )}
-      <p className="text-5xl font-bold mb-2 lg:mb-5">
+      <p
+        className="text-5xl font-bold mb-2 lg:mb-5"
+        aria-label={`Temperature: ${avgTemp} degrees Celsius`}
+      >
         {avgTemp}
         <sup>&#8451;</sup>
       </p>
-      <p>{today}</p>
+      <p aria-label={`Today is ${today}`}>{today}</p>
+
       <div className="flex mt-10 xxm:mt-3 lg:mt-10 mb-3">
-        <FaArrowUp className="m-1 text-blue-500" /> <p>Sunrise: {rise}</p>
+        <FaArrowUp className="m-1 text-blue-500" aria-hidden="true" />
+        <p>
+          Sunrise: <time aria-label={`Sunrise time is ${rise}`}>{rise}</time>
+        </p>
       </div>
+
       <div className="flex">
-        <FaArrowDown className="m-1 text-blue-500" /> <p>Sunset: {set}</p>
+        <FaArrowDown className="m-1 text-blue-500" aria-hidden="true" />
+        <p>
+          Sunset: <time aria-label={`Sunset time is ${set}`}>{set}</time>
+        </p>
       </div>
     </div>
   );

@@ -5,7 +5,8 @@ import React, { useState } from "react";
 
 const SearchBox = () => {
   const [myText, setMyText] = useState("");
-  const { setWeatherData, setForecastData, setHome, setLoading } = useWeatherStore();
+  const { setWeatherData, setForecastData, setHome, setLoading } =
+    useWeatherStore();
   const home = useWeatherStore((state) => state.home);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMyText(e.target.value);
@@ -23,14 +24,23 @@ const SearchBox = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
+      <label htmlFor="location-search" className="sr-only">
+        Search location
+      </label>
       <input
+        id="location-search"
         type="text"
         placeholder="search location"
         className="input 2xl:input-lg input-primary mr-2 lg:ml-7 xxm:pr-20 2xl:pr-28"
         value={myText}
         onChange={handleChange}
+        aria-label="Search location"
       />
-      <button type="submit" className="btn 2xl:btn-lg btn-primary">
+      <button
+        type="submit"
+        className="btn 2xl:btn-lg btn-primary"
+        aria-label="Submit search"
+      >
         Search
       </button>
     </form>

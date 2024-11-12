@@ -20,27 +20,40 @@ const AirQuality = () => {
   }
   return (
     <div className="my-5">
-      <section className="mb-2">
+      <section className="mb-2" aria-label="Air Quality">
         {AQ && (
           <>
             <progress
               value={AQ.level}
               max="6"
               className="progress progress-success h-2 w-3/5"
+              aria-valuenow={AQ.level}
+              aria-valuemin={0}
+              aria-valuemax={6}
+              aria-label="Air quality level"
             ></progress>
-            <p className="font-bold text-pretty">{AQ.message}</p>
+            <p className="font-bold text-pretty" aria-live="polite">
+              {AQ.message}
+            </p>
           </>
         )}
       </section>
-      <section>
+
+      <section aria-label="Humidity Details">
         {HD && (
           <>
             <progress
               value={HD.level}
               max="4"
               className="progress progress-warning h-2 w-3/5"
+              aria-valuenow={HD.level}
+              aria-valuemin={0}
+              aria-valuemax={4}
+              aria-label="Humidity level"
             ></progress>
-            <p className="font-bold">{HD.message}</p>
+            <p className="font-bold" aria-live="polite">
+              {HD.message}
+            </p>
             <p className="text-pretty">{HD.details}</p>
           </>
         )}

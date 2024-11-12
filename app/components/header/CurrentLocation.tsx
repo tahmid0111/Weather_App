@@ -38,8 +38,17 @@ const CurrentLocation = () => {
   };
 
   return (
-    <div className="tooltip tooltip-bottom" data-tip="current location">
-      <button onClick={handleClick}>
+    <div
+      className="tooltip tooltip-bottom"
+      data-tip="current location"
+      role="tooltip"
+      id="tooltip-location"
+    >
+      <button
+        onClick={handleClick}
+        aria-label="Show current location"
+        aria-describedby="tooltip-location"
+      >
         <FaLocationCrosshairs className="text-2xl 2xl:text-4xl opacity-50 hover:opacity-90 mt-7 xxs:mt-3 lg:mt-3 ml-5 xxs:ml-2 md:mr-2 xl:mr-5 xxs:mr-2 xxm:mr-7" />
       </button>
     </div>

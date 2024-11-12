@@ -19,16 +19,18 @@ const Moon = () => {
   return (
     <div className="bg-white rounded-lg md:rounded-2xl py-5 px-3 md:p-5">
       <header className="flex mb-5">
-        <p className="text-slate-500 font-bold">Night</p>
-        <FaMoon className="m-1 text-yellow-500" />
+        <p className="text-slate-500 font-bold" role="heading" aria-level={2}>
+          Night
+        </p>
+        <FaMoon className="m-1 text-yellow-500" aria-hidden="true" />
       </header>
       <p>{moon_phase} Moon</p>
       <div className="flex mt-2">
-        <FaArrowUp className="m-1 text-yellow-500" />
+        <FaArrowUp className="m-1 text-yellow-500" aria-hidden="true" />
         <p>Moon rise: {moonrise}</p>
       </div>
       <div className="flex">
-        <FaArrowDown className="m-1 text-yellow-500" />
+        <FaArrowDown className="m-1 text-yellow-500" aria-hidden="true" />
         <p>Moon set: {moonset}</p>
       </div>
     </div>

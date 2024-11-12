@@ -21,9 +21,17 @@ const Forecast = ({ dayNum }: { dayNum: number }) => {
     return <ForecastSkeleton />;
   }
   return (
-    <article className="bg-white px-1 py-5 rounded-2xl mx-1 xl:mx-2 text-center">
-      <p className="font-bold">{today}</p>
-      <p className="text-2xl my-3 text-blue-500 font-bold">
+    <article
+      className="bg-white px-1 py-5 rounded-2xl mx-1 xl:mx-2 text-center"
+      aria-label={`Weather information for ${today}`}
+    >
+      <p className="font-bold" aria-label={`Date: ${today}`}>
+        {today}
+      </p>
+      <p
+        className="text-2xl my-3 text-blue-500 font-bold"
+        aria-label={`Temperature: ${temp} degrees Celsius`}
+      >
         {temp}
         <sup>&#8451;</sup>
       </p>
