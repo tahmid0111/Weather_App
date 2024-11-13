@@ -25,13 +25,13 @@
 ## 1. Clone the Repository:
 
 ```bash
-git clone https://github.com/tahmid0111/Gaming_House.git
+git clone https://github.com/tahmid0111/Weather_App.git
 ```
 
 ## 2. Install Dependencies:
 
 ```bash
-cd gaming-house
+cd weather_app
 npm install
 ```
 
