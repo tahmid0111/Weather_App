@@ -1,4 +1,4 @@
-# <div align="center"> Gaming House 😮‍💨</div>
+# <div align="center"> Weather AI 😮‍💨</div>
 
 <div align="center">
   
