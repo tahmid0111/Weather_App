@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react"
 import useWeatherStore from "@/app/store/weatherStore";
 import { FaArrowUp, FaArrowDown, FaMoon } from "react-icons/fa";
 import DetailsSkeleton from "../../skeleton/DetailsSkeleton";
@@ -17,7 +18,7 @@ const Moon = () => {
     return <DetailsSkeleton />;
   }
   return (
-    <div className="bg-white rounded-lg md:rounded-2xl py-5 px-3 md:p-5">
+    <motion.div className="bg-white rounded-lg md:rounded-2xl py-5 px-3 md:p-5" whileHover={{scale: 1.05}}>
       <header className="flex mb-5">
         <p className="text-slate-500 font-bold" role="heading" aria-level={2}>
           Night
@@ -33,7 +34,7 @@ const Moon = () => {
         <FaArrowDown className="m-1 text-yellow-500" aria-hidden="true" />
         <p>Moon set: {moonset}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

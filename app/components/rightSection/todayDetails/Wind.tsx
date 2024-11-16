@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react"
 import { FaWind } from "react-icons/fa";
 import useWeatherStore from "@/app/store/weatherStore";
 import { ImCompass } from "react-icons/im";
@@ -15,10 +16,11 @@ const Wind = () => {
     return <DetailsSkeleton />;
   }
   return (
-    <div
+    <motion.div
       className="bg-white rounded-lg md:rounded-2xl py-5 px-3 md:p-5"
       role="region"
       aria-labelledby="wind-status"
+      whileHover={{scale: 1.05}}
     >
       <header className="flex mb-3">
         <p className="text-slate-500 font-bold" id="wind-status">
@@ -39,7 +41,7 @@ const Wind = () => {
       <p className="mt-2" aria-live="polite">
         Visibility: {visibility} km
       </p>
-    </div>
+    </motion.div>
   );
 };
 

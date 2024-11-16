@@ -42,9 +42,9 @@ export default function Home() {
       <header className="col-span-12 md:hidden mx-auto">
         <ResponsiveHeader />
       </header>
-      <header className="col-span-4 px-5 xl:px-10 hidden md:block">
+      <header className="col-span-4 px-5 xl:px-10 hidden md:block overflow-hidden">
         <Link href="/">
-          <div className="flex lg:pl-10 xl:pl-20 my-5">
+          <div className="flex lg:ml-10 xl:ml-20 my-5 overflow-hidden w-fit">
             <h1 className="text-3xl 2xl:text-4xl">Weather AI</h1>
             <FaAndroid className="text-4xl 2xl:text-5xl ml-3 font-bold text-blue-500 pt-1" />
           </div>

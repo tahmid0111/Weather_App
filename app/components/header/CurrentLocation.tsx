@@ -39,17 +39,18 @@ const CurrentLocation = () => {
 
   return (
     <div
-      className="tooltip tooltip-bottom"
+      className="tooltip tooltip-bottom w-fit"
       data-tip="current location"
       role="tooltip"
       id="tooltip-location"
     >
       <button
+      className="mt-7 xxs:mt-3 lg:mt-3 ml-5 xxs:ml-2 xxs:mr-2 xxm:mr-7 md:mr-2 xl:mr-5"
         onClick={handleClick}
         aria-label="Show current location"
         aria-describedby="tooltip-location"
       >
-        <FaLocationCrosshairs className="text-2xl 2xl:text-4xl opacity-50 hover:opacity-90 mt-7 xxs:mt-3 lg:mt-3 ml-5 xxs:ml-2 md:mr-2 xl:mr-5 xxs:mr-2 xxm:mr-7" />
+        <FaLocationCrosshairs className="text-2xl 2xl:text-4xl opacity-50 hover:opacity-90 " />
       </button>
     </div>
   );

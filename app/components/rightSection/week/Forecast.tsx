@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "motion/react"
 import useWeatherStore from "@/app/store/weatherStore";
 import { getDayOfWeek } from "@/app/utilities/date.helper";
 import { avgTemp } from "@/app/utilities/weather.helper";
@@ -21,9 +22,10 @@ const Forecast = ({ dayNum }: { dayNum: number }) => {
     return <ForecastSkeleton />;
   }
   return (
-    <article
+    <motion.article
       className="bg-white px-1 py-5 rounded-2xl mx-1 xl:mx-2 text-center"
       aria-label={`Weather information for ${today}`}
+      whileHover={{scale: 1.05}}
     >
       <p className="font-bold" aria-label={`Date: ${today}`}>
         {today}
@@ -35,7 +37,7 @@ const Forecast = ({ dayNum }: { dayNum: number }) => {
         {temp}
         <sup>&#8451;</sup>
       </p>
-    </article>
+    </motion.article>
   );
 };
 
